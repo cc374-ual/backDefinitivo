@@ -99,7 +99,7 @@ function leerArchivo(callback) {
 function iniciarRevisionPeriodica() {
     obtenerUltimoTimestamp((err, lastTimestamp) => {
         if (err) {
-            console.error('No se pudo obtener el último timestamp. Abortando.');
+            console.error('No se pudo obtener el último timestamp.');
             process.exit(1);
         }
         console.log('Último timestamp procesado:', lastTimestamp.toISOString());
