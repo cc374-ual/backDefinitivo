@@ -21,7 +21,7 @@ app.get('/', (req, res) => {
   res.json(textNormal);
 });
 
-app.post('/guardar-cambios-regla', (req,res) => {
+app.post('/guardarCambiosRegla', (req,res) => {
 try{
   console.log(req.body.textoRegla);
   let contenidoReglas = fs.readFileSync("/var/lib/suricata/rules/local.rules", 'utf8');
@@ -64,7 +64,7 @@ try{
 });
 
 
-app.post('/guardar-cambiosConfigGeneral', (req,res) => {
+app.post('/guardarCambiosConfigGeneral', (req,res) => {
   try{
     console.log(req.body);
     const valoresActualizados = req.body;
@@ -113,7 +113,7 @@ app.post('/guardar-cambiosConfigGeneral', (req,res) => {
 });
 
 
-app.post('/guardar-cambios', (req, res) => {
+app.post('/guardarCambios', (req, res) => {
   try {
     console.log(req.body);
     const valoresActualizados = req.body;
@@ -297,7 +297,7 @@ app.get('/puertoDestinoMasAlertas', (req, res) => {
 });
 
 
-app.get('/estado-contenedores',(req,res) => {
+app.get('/estadoContenedores',(req,res) => {
 
   exec('docker ps -a --format "{{.Status}}|{{.Names}}|{{.Ports}}"', (error, stdout) => {
     if (error) {
@@ -323,7 +323,7 @@ app.get('/estado-contenedores',(req,res) => {
   });
 });
 
-app.post('/actualizar-estado',(req,res)=>{
+app.post('/actualizarEstado',(req,res)=>{
   console.log(req.body);
   const nombreContenedor = req.body.nombre;
   const indicador = req.body.indicador;
